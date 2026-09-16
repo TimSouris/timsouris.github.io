@@ -1,55 +1,129 @@
-# Réflexion & Structure — timsouris.github.io
+# Architecture & Spécifications — timsouris.github.io
 
-Document de travail pour poser la structure du site vitrine avant tout développement technique.
+Document de référence fixant l'arborescence, les contenus clés et les principes visuels du site vitrine avant toute phase d'implémentation.
+
+> **Règle projet** : Phase de conception uniquement. Aucun build ni génération de code tant que la structure et les maquettes ne sont pas validées par Tim.
 
 ---
 
 ## 1. Objectifs & Positionnement
 
-- **Cible** : Recruteurs, RSSI, leads cybersécurité/IT, pairs techniques.
-- **Image renvoyée** : Précis, rigoureux, moderne, orienté défense & analyse tout en démontrant une maîtrise offensive (Blue/Purple team).
-- **Format cible** : Single-page fluide et percutante (ou multi-pages très léger si nécessaire), ultra-rapide au chargement.
+- **Double vocation** :
+  1. **Attirer et convaincre les employeurs/recruteurs** : Mettre en avant un profil d'exception en cybersécurité et IT (double profil développement full-stack + expertise défensive/offensive opérationnelle).
+  2. **Convertir des clients potentiels** : Présenter une offre de services claire, technique et crédible pour des missions d'audit, de sécurisation ou d'ingénierie IT.
+- **Tonalité** : Épurée, moderne, rigoureuse, hautement technique mais accessible et percutante.
+- **Expérience utilisateur** : Dynamique, responsive (mobile/tablette/desktop), navigation fluide, temps de chargement instantané.
 
 ---
 
-## 2. Propositions d'Arborescence & Sections
+## 2. Arborescence du Site
 
-### Option A : Narrative & Structurée (Recommandée)
-1. **Hero Header** :
-   - Accroche directe : Nom, rôle clé (*Ingénieur Cybersécurité / Détection & Réponse aux Incidents / Pentest Web*).
-   - Pitch en 2 phrases (parcours, background EBIOS RM / SIEM / Sécurité offensive).
-   - Liens rapides : GitHub, LinkedIn, CV PDF téléchargeable, contact.
-2. **Domaines d'Expertise (Cartes / Piliers)** :
-   - *SOC & Détection* : SIEM (Splunk), Threat Hunting, analyse d'incidents.
-   - *Audit & Pentest Web* : Méthodologies d'audit (Burp Suite, OWASP Top 10), bug bounty.
-   - *Gouvernance & Risques* : EBIOS RM, Security+.
-   - *Ingénierie & Dev* : Scripts Python/Go/Bash, outillage interne, automatisation.
-3. **Réalisations & Projets Phares** :
-   - Mise en avant de projets concrets (outils open source, lab d'analyse, cas d'étude anonymisé, articles/writeups).
-4. **Certifications & Accréditations** :
-   - Badges discrets et élégants : ANSSI EBIOS Risk Manager, CompTIA Security+, Google Cybersecurity, TryHackMe Top 3%.
-5. **Contact / Footer** :
-   - Prise de contact par email/LinkedIn, clé PGP éventuelle, liens sociaux.
-
-### Option B : Minimaliste & Directe (Focus Portfolio / Writeups)
-1. **Hero ultra-épuré** (Bio concise + coordonnées).
-2. **Matrix de compétences** (interactive ou catégorisée).
-3. **Selected Works / Publications / Writeups**.
-4. **Timeline rapide** (Parcours & formations clés).
+```text
+/ (Page d'accueil — Grand CV interactif & vitrine)
+├── /services/
+│   ├── /services/creation-site-web/
+│   ├── /services/pentest/
+│   ├── /services/soc-detection/
+│   ├── /services/consulting-cyber/
+│   └── /services/automatisation-ia/
+└── /contact/ (Page de contact dédiée & coordonnées professionnelles)
+```
 
 ---
 
-## 3. Pistes Techniques Légères (GitHub Pages)
+## 3. Détail des Pages & Contenus
 
-Puisque le site sera sur GitHub Pages, plusieurs options propres s'offrent à nous :
-- **HTML / CSS vanilla + JS léger** : Zéro dépendance, ultra pérenne, chargement instantané (< 50ms), contrôle total du DOM.
-- **Astro (Mode statique)** : Idéal pour un site de contenu rapide, composants réutilisables, pas de JS client inutile.
-- **Tailwind CSS ou CSS Custom Properties** : Pour décliner fidèlement la palette bleue marine / électrique et la typo aérée.
+### 3.1 Page d'Accueil : Le "Grand CV" Dynamique
+
+L'accueil est pensé comme un CV vivant et immersif qui synthétise tout le profil de Tim en un coup d'œil :
+
+1. **Hero Header (Impact immédiat)** :
+   - Emplacement réservé pour les futures **photos professionnelles** de Tim (intégration soignée, cadre épuré avec liseré lumineux).
+   - Accroche forte : Nom (*Timothée Souris*), rôle clé (*Ingénieur Cybersécurité & Développeur IT*).
+   - Pitch de présentation (3-4 lignes percutantes) : Master en Informatique, apprentissage full-stack, expertise SOC/SIEM (Splunk), réponse à incidents, audit offensif web (TryHackMe Top 3%, YesWeHack) et démarche de gestion des risques EBIOS RM.
+   - Boutons d'action (CTAs) : `Télécharger mon CV (PDF)`, `Me contacter`, `Découvrir mes services`.
+   - Liens rapides : LinkedIn, GitHub, profil TryHackMe, email.
+
+2. **Chiffres clés & Preuves de compétence (Bandeau de réassurance)** :
+   - Master en Informatique (Bac+5).
+   - Top 3% TryHackMe mondial & chercheur YesWeHack.
+   - Certifications ANSSI EBIOS Risk Manager, CompTIA Security+, Google Cybersecurity.
+
+3. **Carrousel / Grille des Services (Passerelle vers les pages dédiées)** :
+   - Cartes dynamiques avec micro-animations au survol résumant les 5 pôles d'activité.
+   - Lien vers la page détaillée de chaque service.
+
+4. **Parcours & Expériences (Timeline interactive)** :
+   - Historique des expériences en entreprise (développement full-stack, projets sécurité, SIEM).
+   - Formation supérieure & cursus universitaire.
+
+5. **Compétences & Stack technique (Visualisation claire par piliers)** :
+   - *Sécurité Défensive & Détection* : Splunk, SIEM, Threat Hunting, analyse d'incidents, EBIOS RM.
+   - *Sécurité Offensive & Audit* : Burp Suite, méthodologies OWASP, reconnaissance avancée, exploitation web.
+   - *Ingénierie Logicielle* : Python, Go, Bash, JavaScript/TypeScript, architectures web, API.
+   - *Automatisation & Outils IA* : Agents autonomes, scripting d'orchestration, outillage sur-mesure.
+
+6. **Call-to-Action final "Recruteur / Partenaire"** :
+   - Encart incitatif avec phrase d'accroche pour déclencher la prise de contact immédiate.
 
 ---
 
-## 4. Prochaines Étapes de Réflexion
-- [ ] Valider l'option de structure préférée (Option A vs B ou mix).
-- [ ] Arrêter les sections clés et les intitulés.
-- [ ] Sélectionner la police sans-serif définitive (ex. *Plus Jakarta Sans* vs *Inter* vs *Geist*).
-- [ ] Valider les nuances exactes des bleus (fonds sombres `#0A0F1D` / `#0D1527` et accents `#0066FF` / `#00D2FF`).
+### 3.2 Pages Services Détaillées
+
+Chaque page de service suit un gabarit cohérent : *Problématique client/entreprise* → *Notre approche / Méthodologie* → *Livrables & Garanties* → *CTA Contact*.
+
+1. **Création de site web** :
+   - Conception de sites vitrines modernes, rapides, sécurisés dès la conception (Security by Design).
+   - Responsive design, performance web (Core Web Vitals), respect de la vie privée/RGPD.
+   - Stack moderne, code propre et pérenne.
+
+2. **Pentest (Tests d'intrusion & Audits web)** :
+   - Audits applicatifs web et API (périmètre OWASP Top 10, logique métier, contrôles d'accès).
+   - Posture offensive réaliste et méthodologie rigoureuse sans disruption de service.
+   - Livrable actionnable : rapport clair avec preuve de concept (PoC), criticité CVSS et remédiations concrètes.
+
+3. **SOC & Détection d'Incidents** :
+   - Mise en place et optimisation de règles de détection (Splunk, SIEM).
+   - Analyse de journaux d'événements, Threat Hunting, détection des comportements anormaux.
+   - Procédures de réponse à incidents et limitation de l'impact.
+
+4. **Consulting Cybersécurité & Gouvernance** :
+   - Analyse de risques selon la méthode ANSSI EBIOS Risk Manager (EBIOS RM).
+   - Évaluation de la posture de sécurité et recommandations stratégiques.
+   - Accompagnement à la conformité et sensibilisation des équipes.
+
+5. **Automatisation & Intégration IA** :
+   - Développement de scripts et bots sur-mesure pour automatiser les tâches répétitives (Python, Go, Bash).
+   - Intégration d'outils et d'agents IA dans les workflows quotidiens pour démultiplier la productivité.
+   - Connexion d'APIs et sécurisation des flux de données.
+
+---
+
+### 3.3 Page Contact
+
+- Formulaire épuré (Nom, Email, Entreprise, Type de demande : Recrutement / Audit / Projet Web / Autre, Message).
+- Coordonnées directes cliquables (Email professionnel, profil LinkedIn, GitHub).
+- Option clé publique PGP pour communications chiffrées si souhaité.
+
+---
+
+## 4. Charte Graphique & Identité Visuelle
+
+- **Atmosphère** : "Deep Blue Tech" — sobre, haut de gamme, inspirant confiance et solidité technique.
+- **Palette chromatique** :
+  - *Fonds principaux* : Bleu nuit profond (`#070B14`, `#0A0F1D`).
+  - *Cartes & conteneurs* : Bleu marine subtilement contrasté (`#0E172A`, `#131E36`).
+  - *Accents & highlights* : Bleu électrique (`#0066FF`, `#00D2FF`, `#38BDF8`) pour le dynamisme, les liens actifs et les boutons d'action.
+  - *Textes* : Blanc cassé (`#F8FAFC`) pour les titres, gris bleuté clair (`#94A3B8`) pour le corps de texte (excellent confort de lecture).
+- **Typographie** :
+  - Famille sans-serif légère et contemporaine (type *Plus Jakarta Sans*, *Geist*, *Inter* avec graisse fine/légère, ou *Calibri Light* moderne).
+  - Éviter absolument les typographies génériques/standardisées des templates générés par IA.
+
+---
+
+## 5. Prochaines Étapes Validées avec Tim
+
+1. [x] Spécification de l'arborescence et du positionnement "Grand CV".
+2. [ ] Réception et sélection des photos professionnelles de Tim.
+3. [ ] Choix définitif de la typographie et des teintes hexadécimales exactes.
+4. [ ] Validation des maquettes/wireframes statiques avant tout début de build.
