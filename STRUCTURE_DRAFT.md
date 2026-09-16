@@ -1,6 +1,6 @@
 # Architecture & Spécifications — timsouris.github.io
 
-Document de référence fixant l'arborescence, les contenus clés et les principes visuels du site vitrine avant toute phase d'implémentation.
+Document de référence fixant l'arborescence, les contenus clés, la stratégie de publication (Blog/Write-ups) et les principes visuels du site vitrine avant toute phase d'implémentation.
 
 > **Règle projet** : Phase de conception uniquement. Aucun build ni génération de code tant que la structure et les maquettes ne sont pas validées par Tim.
 
@@ -8,15 +8,16 @@ Document de référence fixant l'arborescence, les contenus clés et les princip
 
 ## 1. Objectifs & Positionnement
 
-- **Double vocation** :
-  1. **Attirer et convaincre les employeurs/recruteurs** : Mettre en avant un profil d'exception en cybersécurité et IT (double profil développement full-stack + expertise défensive/offensive opérationnelle).
+- **Triple vocation** :
+  1. **Attirer et convaincre les recruteurs & employeurs** : Mettre en avant un profil d'exception en cybersécurité et IT (double profil développement full-stack + expertise défensive/offensive opérationnelle).
   2. **Convertir des clients potentiels** : Présenter une offre de services claire, technique et crédible pour des missions d'audit, de sécurisation ou d'ingénierie IT.
+  3. **Vitrine technique & autorité (Blog / Write-ups)** : Démontrer l'expertise sur le terrain via des write-ups TryHackMe réguliers, des analyses de CVE et des articles de veille défensive/offensive.
 - **Tonalité** : Épurée, moderne, rigoureuse, hautement technique mais accessible et percutante.
 - **Expérience utilisateur** : Dynamique, responsive (mobile/tablette/desktop), navigation fluide, temps de chargement instantané.
 
 ---
 
-## 2. Arborescence du Site
+## 2. Arborescence Complète du Site
 
 ```text
 / (Page d'accueil — Grand CV interactif & vitrine)
@@ -26,6 +27,8 @@ Document de référence fixant l'arborescence, les contenus clés et les princip
 │   ├── /services/soc-detection/
 │   ├── /services/consulting-cyber/
 │   └── /services/automatisation-ia/
+├── /blog/ (Index des articles & write-ups avec filtres/tags)
+│   └── /blog/[slug]/ (Page article détaillée avec coloration syntaxique & sommaire)
 └── /contact/ (Page de contact dédiée & coordonnées professionnelles)
 ```
 
@@ -35,12 +38,12 @@ Document de référence fixant l'arborescence, les contenus clés et les princip
 
 ### 3.1 Page d'Accueil : Le "Grand CV" Dynamique
 
-L'accueil est pensé comme un CV vivant et immersif qui synthétise tout le profil de Tim en un coup d'œil :
+L'accueil synthétise tout le profil de Tim en un coup d'œil immersif :
 
 1. **Hero Header (Impact immédiat)** :
    - Emplacement réservé pour les futures **photos professionnelles** de Tim (intégration soignée, cadre épuré avec liseré lumineux).
    - Accroche forte : Nom (*Timothée Souris*), rôle clé (*Ingénieur Cybersécurité & Développeur IT*).
-   - Pitch de présentation (3-4 lignes percutantes) : Master en Informatique, apprentissage full-stack, expertise SOC/SIEM (Splunk), réponse à incidents, audit offensif web (TryHackMe Top 3%, YesWeHack) et démarche de gestion des risques EBIOS RM.
+   - Pitch de présentation (3-4 lignes) : Master en Informatique, apprentissage full-stack, expertise SOC/SIEM (Splunk), réponse à incidents, audit offensif web (TryHackMe Top 3%, YesWeHack) et démarche de gestion des risques EBIOS RM.
    - Boutons d'action (CTAs) : `Télécharger mon CV (PDF)`, `Me contacter`, `Découvrir mes services`.
    - Liens rapides : LinkedIn, GitHub, profil TryHackMe, email.
 
@@ -51,79 +54,108 @@ L'accueil est pensé comme un CV vivant et immersif qui synthétise tout le prof
 
 3. **Carrousel / Grille des Services (Passerelle vers les pages dédiées)** :
    - Cartes dynamiques avec micro-animations au survol résumant les 5 pôles d'activité.
-   - Lien vers la page détaillée de chaque service.
 
-4. **Parcours & Expériences (Timeline interactive)** :
+4. **Dernières Publications (Aperçu du Blog / Write-ups)** :
+   - Mise en avant des 2 ou 3 derniers write-ups TryHackMe ou articles de recherche.
+   - Badges de difficulté (Easy / Medium / Hard) et tags techniques (ex. *Web*, *PrivEsc*, *Splunk*, *Active Directory*).
+
+5. **Parcours & Expériences (Timeline interactive)** :
    - Historique des expériences en entreprise (développement full-stack, projets sécurité, SIEM).
    - Formation supérieure & cursus universitaire.
 
-5. **Compétences & Stack technique (Visualisation claire par piliers)** :
+6. **Compétences & Stack technique (Visualisation claire par piliers)** :
    - *Sécurité Défensive & Détection* : Splunk, SIEM, Threat Hunting, analyse d'incidents, EBIOS RM.
    - *Sécurité Offensive & Audit* : Burp Suite, méthodologies OWASP, reconnaissance avancée, exploitation web.
    - *Ingénierie Logicielle* : Python, Go, Bash, JavaScript/TypeScript, architectures web, API.
    - *Automatisation & Outils IA* : Agents autonomes, scripting d'orchestration, outillage sur-mesure.
 
-6. **Call-to-Action final "Recruteur / Partenaire"** :
+7. **Call-to-Action final "Recruteur / Partenaire"** :
    - Encart incitatif avec phrase d'accroche pour déclencher la prise de contact immédiate.
 
 ---
 
-### 3.2 Pages Services Détaillées
+### 3.2 Section Blog & Write-ups TryHackMe
 
-Chaque page de service suit un gabarit cohérent : *Problématique client/entreprise* → *Notre approche / Méthodologie* → *Livrables & Garanties* → *CTA Contact*.
+Le blog est un pilier central pour asseoir la crédibilité technique auprès des recruteurs et pairs.
 
-1. **Création de site web** :
-   - Conception de sites vitrines modernes, rapides, sécurisés dès la conception (Security by Design).
-   - Responsive design, performance web (Core Web Vitals), respect de la vie privée/RGPD.
-   - Stack moderne, code propre et pérenne.
-
-2. **Pentest (Tests d'intrusion & Audits web)** :
-   - Audits applicatifs web et API (périmètre OWASP Top 10, logique métier, contrôles d'accès).
-   - Posture offensive réaliste et méthodologie rigoureuse sans disruption de service.
-   - Livrable actionnable : rapport clair avec preuve de concept (PoC), criticité CVSS et remédiations concrètes.
-
-3. **SOC & Détection d'Incidents** :
-   - Mise en place et optimisation de règles de détection (Splunk, SIEM).
-   - Analyse de journaux d'événements, Threat Hunting, détection des comportements anormaux.
-   - Procédures de réponse à incidents et limitation de l'impact.
-
-4. **Consulting Cybersécurité & Gouvernance** :
-   - Analyse de risques selon la méthode ANSSI EBIOS Risk Manager (EBIOS RM).
-   - Évaluation de la posture de sécurité et recommandations stratégiques.
-   - Accompagnement à la conformité et sensibilisation des équipes.
-
-5. **Automatisation & Intégration IA** :
-   - Développement de scripts et bots sur-mesure pour automatiser les tâches répétitives (Python, Go, Bash).
-   - Intégration d'outils et d'agents IA dans les workflows quotidiens pour démultiplier la productivité.
-   - Connexion d'APIs et sécurisation des flux de données.
+- **Index du Blog (`/blog/`)** :
+  - Barre de recherche instantanée (côté client, ultra-rapide).
+  - Filtres par catégories :
+    - *Write-ups TryHackMe* (machines terminées, challenges CTF).
+    - *Sécurité Web & Pentest* (analyses de vulnérabilités, bypass, méthodologies).
+    - *SOC & Blue Team* (détection Splunk, threat intel, analyse forensique).
+    - *Dev & Automatisation* (scripts, agents IA, tooling).
+  - Cartes d'articles soignées avec date, temps de lecture estimé, tags et niveau de difficulté pour les boxes THM.
+- **Page Article (`/blog/[slug]/`)** :
+  - Mise en page aérée favorisant la lecture longue.
+  - **Coloration syntaxique irréprochable** (Shiki / Prism) pour les commandes terminal, requêtes HTTP et code (Python, Go, Bash, JSON).
+  - Sommaire automatique sticky (Table of Contents).
+  - Boutons de partage et bouton "Copier le lien".
 
 ---
 
-### 3.3 Page Contact
+### 3.3 Architecture Technique du Blog : Faut-il un Back-end ?
 
-- Formulaire épuré (Nom, Email, Entreprise, Type de demande : Recrutement / Audit / Projet Web / Autre, Message).
-- Coordonnées directes cliquables (Email professionnel, profil LinkedIn, GitHub).
-- Option clé publique PGP pour communications chiffrées si souhaité.
+> **Recommandation Cybersécurité & Performance** : **Pas de serveur back-end traditionnel.**
+
+1. **Pourquoi éviter un serveur dynamique (Node.js/PHP/Python + Base de données SQL)** :
+   - **Risque de sécurité (Surface d'attaque)** : Un back-end dynamique avec base de données expose à des risques d'exploitation (SQLi, failles d'authentification, vulnérabilités de packages). Pour un expert en cybersécurité, un site statique sans surface d'attaque en ligne renvoie un signal d'excellence technique et de cohérence totale.
+   - **Complexité & Hébergement** : GitHub Pages n'héberge que des fichiers statiques (HTML/CSS/JS). Ajouter un back-end obligerait à payer ou maintenir un VPS/serveur séparé pour un simple blog.
+
+2. **La solution moderne & élégante : Jamstack / SSG (Static Site Generator)** :
+   - Vos articles et write-ups sont rédigés en **fichiers Markdown (`.md`) ou MDX (`.mdx`)** dans un dossier du projet (ex. `src/content/blog/`).
+   - Chaque article a ses métadonnées en en-tête (titre, date, tags, difficulté THM, résumé).
+   - **Workflow de publication simple comme bonjour** :
+     - Vous rédigez votre write-up dans votre éditeur favori (ou via Obsidian).
+     - Vous faites un `git push` sur la branche `main`.
+     - GitHub Actions compile et déploie le site sur `timsouris.github.io` en moins de 30 secondes.
+   - **Zéro coût, zéro maintenance, disponibilité 100%, vitesse de chargement instantanée (< 100ms)**.
+
+3. **Option intermédiaire si Tim souhaite une interface d'écriture visuelle (CMS)** :
+   - Possibilité de greffer un **CMS headless "Git-based"** (comme *Decap CMS* ou *Keystatic*).
+   - Offre une interface web avec éditeur riche pour rédiger depuis n'importe quel navigateur, et committe automatiquement le Markdown sur GitHub à la publication, sans aucun serveur back-end à héberger.
+
+---
+
+### 3.4 Pages Services Détaillées
+
+1. **/services/creation-site-web/** :
+   - Sites vitrines modernes, légers, responsive, conçus dès le départ *Security by Design*.
+2. **/services/pentest/** :
+   - Audits applicatifs web et API (périmètre OWASP Top 10, logique métier, contrôles d'accès).
+3. **/services/soc-detection/** :
+   - Optimisation de règles SIEM Splunk, Threat Hunting, analyse de logs, réponse aux incidents.
+4. **/services/consulting-cyber/** :
+   - Analyse de risques EBIOS RM, gouvernance, posture globale de sécurité.
+5. **/services/automatisation-ia/** :
+   - Scripting d'orchestration (Python, Go, Bash), intégration d'outils et agents IA, gain de productivité.
+
+---
+
+### 3.5 Page Contact
+
+- Formulaire épuré (Nom, Email, Société, Motif de contact, Message).
+- Coordonnées professionnelles directes (LinkedIn, GitHub, Email pro, clé PGP).
 
 ---
 
 ## 4. Charte Graphique & Identité Visuelle
 
-- **Atmosphère** : "Deep Blue Tech" — sobre, haut de gamme, inspirant confiance et solidité technique.
+- **Atmosphère** : "Deep Blue Tech" — sobre, haut de gamme, inspirant confiance et précision technique.
 - **Palette chromatique** :
   - *Fonds principaux* : Bleu nuit profond (`#070B14`, `#0A0F1D`).
   - *Cartes & conteneurs* : Bleu marine subtilement contrasté (`#0E172A`, `#131E36`).
   - *Accents & highlights* : Bleu électrique (`#0066FF`, `#00D2FF`, `#38BDF8`) pour le dynamisme, les liens actifs et les boutons d'action.
-  - *Textes* : Blanc cassé (`#F8FAFC`) pour les titres, gris bleuté clair (`#94A3B8`) pour le corps de texte (excellent confort de lecture).
+  - *Textes* : Blanc cassé (`#F8FAFC`) pour les titres, gris bleuté clair (`#94A3B8`) pour le corps de texte.
 - **Typographie** :
-  - Famille sans-serif légère et contemporaine (type *Plus Jakarta Sans*, *Geist*, *Inter* avec graisse fine/légère, ou *Calibri Light* moderne).
-  - Éviter absolument les typographies génériques/standardisées des templates générés par IA.
+  - Sans-serif contemporaine, aérée et fine (type *Plus Jakarta Sans*, *Geist*, ou *Inter* fine).
 
 ---
 
 ## 5. Prochaines Étapes Validées avec Tim
 
-1. [x] Spécification de l'arborescence et du positionnement "Grand CV".
-2. [ ] Réception et sélection des photos professionnelles de Tim.
-3. [ ] Choix définitif de la typographie et des teintes hexadécimales exactes.
-4. [ ] Validation des maquettes/wireframes statiques avant tout début de build.
+1. [x] Spécification de l'arborescence complète (Grand CV + 5 Services + Blog/Write-ups + Contact).
+2. [x] Clarification technique de la gestion du blog (Markdown SSG vs back-end).
+3. [ ] Réception et sélection des photos professionnelles de Tim.
+4. [ ] Choix définitif de la typographie et des teintes hexadécimales exactes.
+5. [ ] Validation des maquettes/wireframes avant tout début de build.
